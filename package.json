@@ -1,0 +1,21 @@
+{
+  "name": "r-navigation",
+  "version": "1.0.0",
+  "description": "Pure react navigation",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && babel src -d dist"
+  },
+  "repository": "git@github.com:sharingapples/r-navigation.git",
+  "author": "Ranjan Shrestha <ranjan@sharingapples.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "rimraf": "^2.6.2"
+  }
+}
