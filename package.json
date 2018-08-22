@@ -4,6 +4,7 @@
   "description": "Pure react navigation",
   "main": "dist/index.js",
   "module": "src/index.js",
+  "react-native": "src/index.js",
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && babel src -d dist"
