@@ -3,14 +3,17 @@ A pure react navigation component
 
 ## Usage
 ```javascript
-import { Navigation, ViewPort } from 'r-navigation';
+import { ViewPort } from 'r-navigation';
+
+import './Home';    // Need to import the screens on main
+import './About';   // otherwise they won't be registered
 
 class App extends Component {
   render() {
     return (
       <div>
         <Header />
-        <ViewPort home="one" />
+        <ViewPort home="home" />
         <Footer />
       </div>
     );
@@ -21,22 +24,40 @@ export default App;
 ```
 
 ```javascript
+import React, { Component} from 'react';
 import { navigator, createScreen } from 'r-navigation';
 
-const Link = ({ to, extra, ...other }) => (
-  <a href="#" onClick={() => navigator.push(to, extra)} {...other} />
+const Link = ({ to, props, ...other }) => (
+  <a href="#" onClick={() => navigator.push(to, props)} {...other} />
 );
 
-class ScreenOne extends Component {
+class Home extends Component {
   render() {
     return (
-      <div>Your screen
-        <Link to="another">Another Screen</Link>
+      <div>Home
+        <Link to="another" props={{ p:1, s: 'john' }}>About</Link>
       </div>
     );
   }
 }
 
-createScreen('one', ScreenOne);
+createScreen('home', Home);
 ```
 
+```javascript
+import React, { Component } from 'react';
+import { navigator, createScreen } from 'r-navigation';
+
+class About extends Component {
+  render() {
+    return (
+      <div>
+        <h3>About</h3>
+        <button onClick={() => navigator.pop()}>Back</button>
+      </div>
+    );
+  }
+}
+
+createScreen('about', About);
+```
