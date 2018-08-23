@@ -43,12 +43,11 @@ function createNavigator(): Navigator {
 
   function updateViewPort() {
     const route = currentRoutes[currentRoutes.length - 1];
-    if (route) {
-      const Screen = getScreen(route.name);
 
-      if (viewPort) {
-        viewPort.updateScreen(Screen, route.props);
-      }
+    // Resort to home screen (null path) if no route found
+    if (viewPort) {
+      const Screen = route ? getScreen(route.name) : null;
+      viewPort.updateScreen(Screen, route && route.props);
     }
   }
 

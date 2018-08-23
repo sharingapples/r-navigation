@@ -21,7 +21,7 @@ class ViewPort extends Component<Props, State> {
     };
   }
 
-  updateScreen(Screen: Class<Component<*, *>>, extraProps: {} = {}) {
+  updateScreen(Screen: Class<Component<*, *>> | null, extraProps: {} = {}) {
     this.setState({
       Screen,
       extraProps,
