@@ -34,6 +34,10 @@ export function createScreen(name: string, Screen: Class<Component<*, *>>) {
  * @param {string} name
  */
 export function getScreen(name: string): Class<Component<*, *>> {
+  if (!screens[name]) {
+    throw new Error(`No screen registered for '${name}'. Did you forget to create and then import screen on your main app ?`);
+  }
+
   return screens[name];
 }
 
