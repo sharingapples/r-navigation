@@ -1,6 +1,6 @@
 {
   "name": "r-navigation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pure react navigation",
   "main": "dist/index.js",
   "module": "src/index.js",
