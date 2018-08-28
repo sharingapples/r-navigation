@@ -81,6 +81,23 @@ function createNavigator(): Navigator {
       updateViewPort();
       return removed.name;
     },
+
+    /**
+     * Go back to a screen on the stack that matches
+     * the given name
+     */
+    popTo: (name) => {
+      // Iterate through the entire list until there are
+      // any routes remaining or until a route with the
+      // given name is found
+      while (
+        currentRoutes.length > 0
+        && currentRoutes[currentRoutes.length - 1].name !== name
+      ) {
+        currentRoutes.pop();
+      }
+      updateViewPort();
+    },
   };
 }
 
