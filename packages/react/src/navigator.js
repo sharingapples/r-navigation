@@ -3,6 +3,7 @@ import { Component } from 'react';
 import type ViewPort from './ViewPort';
 
 export type Navigator = {
+  getRoutes: () => Array<{ name: string, props?: {}}>,
   registerViewPort: (ViewPort) => void;
   unregisterViewPort: (ViewPort) => void;
   push: (name: string, props: {}) => void,
@@ -58,6 +59,8 @@ function createNavigator(): Navigator {
   }
 
   return {
+    getRoutes: () => currentRoutes,
+
     registerViewPort: (instance: ViewPort) => {
       if (viewPort !== null) {
         throw new Error('View port is already registered');
