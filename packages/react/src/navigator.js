@@ -7,6 +7,7 @@ export type Navigator = {
   unregisterViewPort: (ViewPort) => void;
   push: (name: string, props: {}) => void,
   pop: () => false | string,
+  popTo: (name: string) => void,
 };
 
 // The screens are kept globally and uniquely identified by their name
