@@ -32,6 +32,10 @@ class ViewPort extends Component<Props, State> {
     navigator.registerViewPort(this);
   }
 
+  componentWillUnmount() {
+    navigator.unregisterViewPort(this);
+  }
+
   render() {
     const { Screen, extraProps } = this.state;
     const { home, ...other } = this.props;

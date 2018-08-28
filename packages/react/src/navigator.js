@@ -4,6 +4,7 @@ import type ViewPort from './ViewPort';
 
 export type Navigator = {
   registerViewPort: (ViewPort) => void;
+  unregisterViewPort: (ViewPort) => void;
   push: (name: string, props: {}) => void,
   pop: () => false | string,
 };
@@ -62,6 +63,12 @@ function createNavigator(): Navigator {
       }
 
       viewPort = instance;
+    },
+
+    unregisterViewPort: (instance: ViewPort) => {
+      if (viewPort === instance) {
+        viewPort = null;
+      }
     },
 
     push: (name: string, props?: {} = {}) => {
